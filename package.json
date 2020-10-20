@@ -1,0 +1,23 @@
+{
+  "name": "nexaco-build-number",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "ncc build src/main.js -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nexaco/Nexaco-Build-Number.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nexaco/Nexaco-Build-Number/issues"
+  },
+  "homepage": "https://github.com/Nexaco/Nexaco-Build-Number#readme",
+  "devDependencies": {
+    "@actions/core": "^1.2.3",
+    "@zeit/ncc": "^0.22.3"
+  }
+}

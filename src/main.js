@@ -2,6 +2,7 @@
 const   https = require('https'),
         zlib = require('zlib'),
         fs = require('fs'),
+        core = require('@actions/core');
         env = process.env;
 
 function fail(message, exitCode=1) {
@@ -70,8 +71,12 @@ function main() {
         let buildNumber = fs.readFileSync(path);
         console.log(`Build number already generated in earlier jobs, using build number ${buildNumber}...`);
         //Setting the output and a environment variable to new build number...
-        console.log(`"BUILD_NUMBER=${buildNumber}" >> $GITHUB_ENV`);
-        console.log(`::set-output name=build_number::${buildNumber}`);
+        
+        core.exportVariable('BUILD_NUMBER', `${buildNumber}`);
+        //console.log(`"BUILD_NUMBER=${buildNumber}" >> $GITHUB_ENV`);
+        core.setOutput('build_number', `${buildNumber}`);
+        //console.log(`::set-output name=build_number::${buildNumber}`);
+        
         return;
     }
     
@@ -129,8 +134,12 @@ function main() {
             console.log(`Successfully updated build number to ${nextBuildNumber}`);
             
             //Setting the output and a environment variable to new build number...
-            console.log(`"BUILD_NUMBER=${nextBuildNumber}" >> $GITHUB_ENV`);
-            console.log(`::set-output name=build_number::${nextBuildNumber}`);
+
+            core.exportVariable('BUILD_NUMBER', `${nextBuildNumber}`);            
+            //console.log(`"BUILD_NUMBER=${nextBuildNumber}" >> $GITHUB_ENV`);
+            core.setOutput('build_number', `${nextBuildNumber}`);            
+            //console.log(`::set-output name=build_number::${nextBuildNumber}`);
+
             //Save to file so it can be used for next jobs...
             fs.writeFileSync('BUILD_NUMBER', nextBuildNumber.toString());
             

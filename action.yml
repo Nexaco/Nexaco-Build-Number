@@ -3,7 +3,7 @@ description: 'Generate sequential build numbers for workflow runs'
 author: 'Nexaco'
 runs:
   using: 'node12'
-  main: 'main.js'
+  main: 'dist/index.js'
 inputs:
   token:
     description: 'GitHub Token to create and delete refs (GITHUB_TOKEN)'
