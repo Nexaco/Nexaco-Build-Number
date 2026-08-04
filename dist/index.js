@@ -26950,7 +26950,7 @@ function main() {
                 fail(`Failed to create new build-number ref. Status: ${status}, err: ${err}, result: ${JSON.stringify(result)}`);
             }
 
-            console.log(`[v.2.1] Successfully updated build number to ${nextBuildNumber}`);
+            console.log(`[v.2.3] Successfully updated build number to ${nextBuildNumber}`);
 
             //Setting the output and environment variable to new build number...
             writeToFile(process.env.GITHUB_ENV, `BUILD_NUMBER=${nextBuildNumber}`);

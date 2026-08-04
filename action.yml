@@ -2,7 +2,7 @@ name: 'Build Number Generator'
 description: 'Generate sequential build numbers for workflow runs'
 author: 'Nexaco'
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
 inputs:
   token:
